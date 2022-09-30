@@ -5,7 +5,7 @@
   <app-product [product]="products[1]"></app-product> -->
 
   <app-product
-    *ngFor="let product of products"
+    *ngFor="let product of products; let ind = index"
     [product]="product"
   ></app-product
   ><!-- cicle for print-->
