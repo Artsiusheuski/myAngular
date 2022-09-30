@@ -2,8 +2,8 @@ import { Component, Input } from '@angular/core';
 import { IProduct } from 'src/app/models/product';
 
 @Component({
-  selector: 'app-product',
-  templateUrl: './product.component.html',
+  selector: 'app-product', //name tag(selector)
+  templateUrl: './product.component.html', //path
 })
 export class ProductComponent {
   @Input() product: IProduct;

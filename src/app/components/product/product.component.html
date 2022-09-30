@@ -1,3 +1,13 @@
-<div class="py-4 px-6 border flex">
-  <h2>{{ product.price }}</h2>
+<div class="py-4 px-6 border flex items-center flex-col mb-2">
+  <img class="w-1/6 mb-2" [src]="product.image" [alt]="product.title" />
+  <h2 class="mb-2 text-mb text-center">{{ product.title }}</h2>
+  <p>
+    <span class="font-extrabold"
+      >Price: {{ product.price | currency: "EUR" }}</span
+    >
+    <!-- {{asdsd | currency}} it is pipe-->
+  </p>
+  <p class="flex-1 bg-cyan-600 border-2 border-slate-900">
+    {{ product.description }}
+  </p>
 </div>

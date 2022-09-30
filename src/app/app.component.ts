@@ -8,7 +8,7 @@ import { products as data } from './data/products';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'myAngular first App';
+  mytitle = 'myAngular first App';
 
   products: IProduct[] = data;
 }
