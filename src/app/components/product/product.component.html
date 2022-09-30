@@ -1,0 +1,37 @@
+<div class="py-4 px-6 border flex items-center flex-col mb-2">
+  <img
+    class="w-1/6 mb-2"
+    [src]="product.image"
+    [alt]="product.title"
+  /><!-- [] для передачи какойто дерективы-->
+  <h2 class="mb-2 text-mb text-center">{{ product.title }}</h2>
+  <p>
+    <span class="font-extrabold"
+      >Price: {{ product.price | currency: "EUR" }}</span
+    >
+    <!-- {{asdsd | currency}} it is pipe-->
+  </p>
+  <!-- ()-используются для событий-->
+  <button
+    class="border py-3 px-4 rounded bg-yellow-400"
+    [ngClass]="{ 'bg-yellow-400': !details, 'bg-blue-400': details }"
+    (click)="details = !details"
+  >
+    {{ details ? "Hide" : "Show" }} Details
+  </button>
+
+  <div *ngIf="details">
+    <!-- директива структурная обознач. *-->
+    <p class="flex-1 bg-cyan-600 border-2 border-slate-900">
+      {{ product.description }}
+    </p>
+
+    <p>
+      Rate:
+      <span [ngStyle]="{ fontWeight: 'bold' }">{{
+        product.rating.rate | number: "1.2-4"
+      }}</span
+      ><!--inline-style-->
+    </p>
+  </div>
+</div>
