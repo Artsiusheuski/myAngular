@@ -1,12 +1,20 @@
 <section class="max-w-2xl container mx-auto pt-5">
+  <app-global-error></app-global-error>
   <h1 class="font-bold mb-2 text-center text-lg">{{ mytitle | titlecase }}</h1>
   <!-- 
   <app-product [product]="products[0]"></app-product>
   <app-product [product]="products[1]"></app-product> -->
 
+  <p *ngIf="loading" class="text-center text-lg">Loading proucts...</p>
+  <!-- if loding===true this p  this paragraph is visible -->
+
   <app-product
+    *ngFor="let product of products$ | async; let ind = index"
+    [product]="product"
+  ></app-product>
+  <!-- <app-product
     *ngFor="let product of products; let ind = index"
     [product]="product"
   ></app-product
-  ><!-- cicle for print-->
+  >cicle for print -->
 </section>
