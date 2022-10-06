@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './components/product/product.component';
+import { GlobalErrorComponent } from './components/global-error/global-error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProductComponent, //регистрируем
+    ProductComponent,
+    GlobalErrorComponent, //регистрируем
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
