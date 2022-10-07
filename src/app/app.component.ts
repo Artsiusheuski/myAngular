@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
 
   loading = false; //indicator downloding
 
-  products$: Observable<IProduct[]>; // observable <Дженерики, или Generic Types>
+  products$: Observable<IProduct[]>; // observable <Generic Types>
+
+  term = '';
 
   constructor(private productsService: ProductsService) {}
 

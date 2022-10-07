@@ -5,7 +5,7 @@ import {
   HttpParams,
 } from '@angular/common/http'; // также нужно добавить в modulle import
 import { IProduct } from '../models/product';
-import { catchError, delay, Observable, throwError } from 'rxjs';
+import { catchError, delay, Observable, retry, throwError } from 'rxjs';
 import { ErrorService } from './error.service';
 
 @Injectable({
@@ -16,7 +16,7 @@ export class ProductsService {
 
   getAll(): Observable<IProduct[]> {
     return this.http
-      .get<IProduct[]>('https://fakestoreapi.com/products1', {
+      .get<IProduct[]>('https://fakestoreapi.com/products', {
         // params: new HttpParams().append('limit', 3),
         params: new HttpParams({
           fromObject: { limit: 5 },
@@ -24,7 +24,8 @@ export class ProductsService {
       })
       .pipe(
         // from rxjs, to slow down loading(для замедления загрузки)
-        delay(2000),
+        delay(1),
+        retry(3), //on error makes the request the specified number of times /при error посылает запрос указанное кол-во раз
         catchError(this.errorMSG.bind(this))
       );
   }
