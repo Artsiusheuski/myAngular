@@ -15,11 +15,12 @@
 
   <p *ngIf="loading" class="text-center text-lg">Loading proucts...</p>
   <!-- if loding===true this p  this paragraph is visible -->
-
-  <app-product
-    *ngFor="let product of products$ | async; let ind = index"
-    [product]="product"
-  ></app-product>
+  <div *ngIf="products$ | async as products">
+    <app-product
+      *ngFor="let product of products | filterProducts: term; let i = index"
+      [product]="product"
+    ></app-product>
+  </div>
   <!-- <app-product
     *ngFor="let product of products; let ind = index"
     [product]="product"
